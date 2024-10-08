@@ -1,0 +1,7 @@
+{% extends "_base.html" %}
+
+{% block content %}
+    {% for record in publication_list %}
+        <p>{{ record.text }}</p>
+    {% endfor %}
+{% endblock content %}
