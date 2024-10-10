@@ -1,0 +1,11 @@
+
+{% extends "_base.html" %}
+
+{% block content %}
+    <h1>Nueva Publicación</h1>
+    <form action="" method="post">
+        {% csrf_token %} <!-- metodo de proteccion para nuestra base de datos por inyeccion sql -->
+        {{ form }}
+        <input type="submit" value="Save">
+    </form>
+{% endblock content %}
