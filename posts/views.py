@@ -11,7 +11,7 @@ class PostListView(ListView):
 class PostCreateView(CreateView):
     model = Publication
     template_name = "post_new.html"
-    fields =["text",] #todos los atributos a incluir en la vista
+    fields =["title", "author", "text",] #todos los atributos a incluir en la vista
     
 class PostDetailView(DetailView):
     model = Publication
