@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Publication
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 class PostListView(ListView):
@@ -21,3 +22,8 @@ class PostUpdateView(UpdateView):
     model = Publication
     template_name = "post_edit.html"
     fields = ["title", "text", ]
+
+class PostDeleteView(DeleteView):
+    model = Publication
+    template_name = "delete.html"
+    success_url = reverse_lazy("post_list")    
