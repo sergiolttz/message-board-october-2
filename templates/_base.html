@@ -4,24 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>MessageBoard</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
-    [<a href="{% url 'post_list' %}">Home</a>]|
-    [<a href="{% url 'post_new' %}">New</a>]
-    
-    {% if user.is_authenticated  %}
-        Hi {{ user.username }}
+    <a href="{% url 'post_list' %}">Home</a> | 
+    <a href="{% url 'post_new' %}">New +</a>
 
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}
+        <form action="{% url 'logout' %}" method="post">{% csrf_token %}
             <button type="submit">Logout</button>
         </form>
     {% else %}
-        <a href="{% url 'login' %}">Log In</a>|
+        <a href="{% url 'login' %}">Log In</a> |
         <a href="{% url 'signup' %}">Sign Up</a>
     {% endif %}
+
     {% block content %}
 
     {% endblock content %}

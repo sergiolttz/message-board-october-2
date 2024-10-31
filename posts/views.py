@@ -12,8 +12,8 @@ class PostListView(ListView):
 class PostCreateView(CreateView):
     model = Publication
     template_name = "post_new.html"
-    fields =["title", "author", "text",] #todos los atributos a incluir en la vista
-    
+    fields =["title", "author", "text"] #todos los atributos a incluir en la vista
+
 class PostDetailView(DetailView):
     model = Publication
     template_name = "post_detail.html"
@@ -21,9 +21,9 @@ class PostDetailView(DetailView):
 class PostUpdateView(UpdateView):
     model = Publication
     template_name = "post_edit.html"
-    fields = ["title", "text", ]
+    fields = ["title", "text"]
 
 class PostDeleteView(DeleteView):
     model = Publication
     template_name = "delete.html"
-    success_url = reverse_lazy("post_list")    
+    success_url = reverse_lazy("post_list")
